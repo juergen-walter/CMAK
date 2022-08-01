@@ -10,7 +10,7 @@ import java.util.Properties
 import grizzled.slf4j.Logging
 import kafka.manager.jmx._
 import kafka.manager.utils
-import kafka.manager.utils.two40.MemberMetadata
+import kafka.manager.utils.three20.MemberMetadata
 import kafka.manager.utils.zero81.ForceReassignmentCommand
 import org.apache.kafka.common.TopicPartition
 import org.joda.time.DateTime
@@ -515,7 +515,7 @@ import scala.language.reflectiveCalls
           case Some(tdP) => Some(tdP.partitionOffsets)
           case None => None
         }
-        
+
         val currentOffsetOption = partitionOffsets.flatMap(_.offsetsMap.get(partitionNum))
         val rateOfChange = for {
           currentOffsets <- partitionOffsets
@@ -531,14 +531,14 @@ import scala.language.reflectiveCalls
           tpSizes.get(partitionNum)))
       }
     }
-    
+
     def getTopicPartitionIdentity(td: TopicDescription, tdPrevious: Option[TopicDescription]) : Map[Int, TopicPartitionIdentity] = {
       // Get the topic description information
       val partMap = getPartitionReplicaMap(td)
 
       getTopicPartitionIdentity(td, partMap, tdPrevious, Map.empty)
     }
-    
+
     implicit def from(brokers: Int,
                       td: TopicDescription,
                       tm: Option[BrokerMetrics],
@@ -602,7 +602,7 @@ import scala.language.reflectiveCalls
                                 numPartitions: Int,
                                 partitionLatestOffsets: Map[Int, Long],
                                 partitionOwners: Map[Int, String],
-                                partitionOffsets: Map[Int, Long], 
+                                partitionOffsets: Map[Int, Long],
                                 clusterContext: ClusterContext) {
     lazy val totalLag : Option[Long] = {
       // only defined if every partition has a latest offset
@@ -645,12 +645,12 @@ import scala.language.reflectiveCalls
       }
 
       ConsumedTopicState(
-        ctd.consumer, 
-        ctd.topic, 
-        ctd.numPartitions, 
-        topicOffsetsOptMap, 
-        partitionOwnersMap, 
-        partitionOffsetsMap, 
+        ctd.consumer,
+        ctd.topic,
+        ctd.numPartitions,
+        topicOffsetsOptMap,
+        partitionOwnersMap,
+        partitionOffsetsMap,
         clusterContext)
     }
   }
