@@ -24,7 +24,7 @@ import java.util.Optional
 import java.util.concurrent.locks.ReentrantLock
 
 import kafka.api.{ApiVersion, KAFKA_2_1_IV0, KAFKA_2_1_IV1}
-import kafka.common.{MessageFormatter, OffsetAndMetadata}
+import kafka.common.{OffsetAndMetadata}
 import kafka.coordinator.group.JoinGroupResult
 import kafka.utils.{CoreUtils, Logging, nonthreadsafe}
 import org.apache.kafka.clients.consumer.ConsumerRecord
@@ -33,7 +33,7 @@ import org.apache.kafka.common.protocol.types.Type._
 import org.apache.kafka.common.protocol.types._
 import org.apache.kafka.common.record._
 import org.apache.kafka.common.utils.Time
-import org.apache.kafka.common.{KafkaException, TopicPartition}
+import org.apache.kafka.common.{KafkaException, TopicPartition, MessageFormatter}
 
 import scala.collection.JavaConverters._
 import scala.collection.{Seq, immutable, mutable, _}
