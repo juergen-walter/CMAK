@@ -154,7 +154,6 @@ object LogConfig extends TopicConfigs {
   val MinInSyncReplicasDoc = TopicConfig.MIN_IN_SYNC_REPLICAS_DOC
   val CompressionTypeDoc = TopicConfig.COMPRESSION_TYPE_DOC
   val PreAllocateEnableDoc = TopicConfig.PREALLOCATE_DOC
-  val MessageFormatVersionDoc = TopicConfig.MESSAGE_FORMAT_VERSION_DOC
   val MessageTimestampTypeDoc = TopicConfig.MESSAGE_TIMESTAMP_TYPE_DOC
   val MessageTimestampDifferenceMaxMsDoc = TopicConfig.MESSAGE_TIMESTAMP_DIFFERENCE_MAX_MS_DOC
 
